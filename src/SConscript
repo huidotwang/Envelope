@@ -1,0 +1,8 @@
+Import('env')
+
+libenv = env.Clone()
+
+srcs = ['analytic.c', 'hilbert.c', 'envelope.c']
+
+libs = libenv.Library('hilbertf', srcs)
+Return('libs')

@@ -1,0 +1,13 @@
+Import('env')
+
+penv = env.Clone()
+
+penv.Append(LIBS = ['hilbertf', 'gomp', 'fftw3f_omp','fftw3f','m'])
+
+srcs = ['hilbert', 'analytic', 'envelope']
+
+exes = []
+for src in srcs:
+    exe = penv.Program('test_'+src+'.x', ['M'+src+'.c'])
+    exes.append(exe)
+Return('exes')
